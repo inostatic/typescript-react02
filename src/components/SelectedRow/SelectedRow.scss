@@ -1,0 +1,18 @@
+@import '../../scss/mixins';
+@import "../../scss/variables";
+
+.info-container {
+  border-left: 1px solid $color3;
+  border-right: 1px solid $color3;
+  border-top: 1px solid $color3;
+  border-bottom: 1px solid $color3;
+  border-radius: 5px;
+  background: #ffffff;
+  .info-container__item {
+    padding: 1rem;
+    border-bottom: 1px solid $color3;
+  }
+  .info-container__item:last-child {
+    border-bottom: none;
+  }
+}

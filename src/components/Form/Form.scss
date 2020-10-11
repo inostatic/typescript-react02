@@ -1,0 +1,48 @@
+@import '../../scss/mixins';
+@import "../../scss/variables";
+
+.form-add {
+  .form-add__container {
+    display: flex;
+    .form-add__input:first-child {
+      input {
+        border-radius: 0 0 0 5px;
+      }
+      label {
+        border-radius: 5px 0 0 0;
+      }
+    }
+    .form-add__input:last-child {
+      input {
+        border-radius: 0 0 5px 0;
+      }
+      label {
+        border-radius: 0 5px 0 0;
+      }
+    }
+    .form-add__input {
+      display: flex;
+      flex-direction: column;
+      width: 20%;
+
+      label {
+        padding: 0.5rem 1rem;
+        background: #000000;
+        color: white;
+        font-size: 16px;
+      }
+
+      input {
+        border-right: 1px solid #595f67;
+        height: 25px;
+        padding: 0 1rem;
+      }
+    }
+  }
+
+  .form-add__btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+}

@@ -1,0 +1,40 @@
+@import '../../scss/mixins';
+@import "../../scss/variables";
+
+.pagination {
+  @include none-target;
+  display: flex;
+  justify-content: flex-end;
+  background: $color1;
+  font-weight: bold;
+  margin: 1rem 0;
+  .active {
+    background: $color2;
+    border-top: 1px solid $color2;
+    border-bottom: 1px solid $color2;
+    a {
+      color: white;
+    }
+  }
+  .disabled a {
+    color: #d1d1d2;
+  }
+ li {
+   background: white;
+   width: 30px;
+   height: 30px;
+   line-height: 30px;
+   text-align: center;
+   border: 1px solid #00000075;
+   border-right: none;
+   cursor: pointer;
+
+ }
+  li:first-child {
+    border-radius: 4px 0 0 4px;
+  }
+  li:last-child {
+    border-right: 1px solid #00000075;
+    border-radius: 0 4px 4px 0;
+  }
+}

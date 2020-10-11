@@ -1,0 +1,93 @@
+@import "../components/Header/Header";
+@import "../components/Navbar/Navbar";
+@import "../components/Button/Button";
+@import "../components/TableHeader/TableHeader";
+@import "../components/TableRow/TableRow";
+@import "../components/Pagination/Pagination";
+@import "../components/Search/Search";
+@import "../components/Loader/Loader";
+@import "../components/SelectedRow/SelectedRow";
+@import "../components/Form/Form";
+
+@import "variables";
+
+
+
+body {
+  font-family: Arial;
+  background: $color1;
+}
+
+.app {
+  margin: 0 auto;
+}
+
+.data {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+//***Modification
+.m1rem {
+  margin: 1rem;
+}
+
+.mr0rem {
+  margin-right: 0rem;
+}
+
+.mtb1rem {
+  margin: 1rem 0;
+}
+
+.br5px {
+  border-radius: 0 0 5px 0;
+}
+
+//**about page
+
+.about {
+  margin: 1rem auto;
+  width: 1000px;
+  background: #ffffff;
+  border-radius: 3px;
+
+  h1 {
+    padding: 2rem 1rem 2rem 5rem;
+    font-size: 26px;
+    font-weight: bold;
+  }
+
+  p {
+    padding: 0.5rem 1rem 0.5rem 2rem;
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  h2 {
+    padding: 1rem 1rem 1rem 3rem;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  ul {
+    li {
+      margin: 0.5rem 10rem 0.5rem 5rem;
+      font-size: 15px;
+      line-height: 20px;
+      list-style: disc;
+
+    }
+  }
+  h3 {
+    padding: 1rem 1rem 1rem 3rem;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .json-block {
+    margin: 2rem 12rem;
+    padding: 2rem;
+    background: #d9dce2;
+    border: 1px solid #595f67;
+    border-radius: 5px;
+  }
+}

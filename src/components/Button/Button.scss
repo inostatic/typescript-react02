@@ -1,0 +1,31 @@
+@import '../../scss/mixins';
+@import "../../scss/variables";
+
+.button {
+  @include none-target;
+  width: 200px;
+  height: 35px;
+  background: yellow;
+  letter-spacing: .5px;
+  font-size: 14px;
+  color: #454957;
+  border-radius: 3px;
+  font-weight: bold;
+
+  &:hover {
+    cursor: pointer;
+    background: #f9dd00;
+  }
+}
+
+.button_active {
+  background: #f9dd00;
+}
+
+.button_disabled {
+  background: rgba(249, 221, 0, 0.5);
+  &:hover {
+    cursor: default;
+    background: rgba(249, 221, 0, 0.5);
+  }
+}

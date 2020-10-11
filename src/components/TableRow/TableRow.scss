@@ -1,0 +1,29 @@
+@import '../../scss/mixins';
+@import "../../scss/variables";
+
+.table-row {
+  display: flex;
+
+  .table-row__item {
+    line-height: 35px;
+    width: 20%;
+    padding-left: 1rem;
+    background: #e4eef8;
+
+  }
+
+  &:nth-child(even) {
+    div {
+      background: #c0c9e5;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    outline: 3px solid green;
+    outline-offset: -2px;
+  }
+  &.selected {
+    outline: 3px solid green;
+    outline-offset: -2px;
+  }
+}

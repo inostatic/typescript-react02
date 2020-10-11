@@ -1,0 +1,14 @@
+@import '../../scss/mixins';
+@import "../../scss/variables";
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+
+  input {
+    border-radius: 0 0 0 5px;
+    border-right: none;
+    padding: 0 1rem;
+    width: 84%;
+  }
+}

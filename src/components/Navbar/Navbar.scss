@@ -1,0 +1,16 @@
+@import '../../scss/mixins';
+@import "../../scss/variables";
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  .navbar__title {
+    padding: 1rem 0 1rem 1rem;
+    font-size: 18px;
+    line-height: 35px;
+    color: #ffffff;
+  }
+  .navbar__container {
+    display: flex;
+  }
+}
