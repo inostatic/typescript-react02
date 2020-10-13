@@ -1,7 +1,20 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {selectPageAC} from "../redux/reducers/select/action";
+import {useDispatch} from "react-redux";
 
+interface AboutPageProps {
+    location: {
+        pathname: string
+    }
+}
 
-export const AboutPage: React.FC = () => {
+export const AboutPage: React.FC<AboutPageProps> = ({location}) => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(selectPageAC(location.pathname))
+    },[])
+
     return (
         <div className="about">
             <h1>Тестовое задание на позицию frontend разработчика</h1>

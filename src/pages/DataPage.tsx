@@ -11,15 +11,22 @@ import {Search} from "../components/Search/Search";
 import {Loader} from "../components/Loader/Loader";
 import {SelectedRow} from "../components/SelectedRow/SelectedRow";
 import {sortType, ITableItem} from  "../types"
+import {selectPageAC} from "../redux/reducers/select/action"
 
+interface HeaderProps {
+    location: {
+        pathname: string
+    }
+}
 
-
-export const DataPage: React.FC = () => {
+export const DataPage: React.FC<HeaderProps> = ({location}) => {
     const dispatch = useDispatch()
     const {items, selectedRow, isLoaded, countItem, currentPage, countAllItems} = useSelector((state:AppState) => state.data)
     const select = useSelector((state: AppState) => state.select.select)
 
-
+    useEffect(() => {
+        dispatch(selectPageAC(location.pathname))
+    },[])
 
     useEffect(() => {
         if (select) {

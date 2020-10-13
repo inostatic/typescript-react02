@@ -16,7 +16,7 @@ const initialState: IStateData = {
     data: [],
     dataReserve: [],
     items: [],
-    countItem: 50,
+    countItem: 20,
     countAllItems: 0,
     currentPage: 1,
     countPages: 0,
@@ -123,6 +123,7 @@ export const data = (state = initialState, action: ActionTypes): IStateData => {
                     currentPage: 1,
                     data: state.dataReserve,
                     countPages: getCountPages(state.dataReserve, state.countItem),
+                    countAllItems: state.dataReserve.length
                 }
             }
             const searchData = searchByString(state.dataReserve, action.payload.toLowerCase())
@@ -131,7 +132,8 @@ export const data = (state = initialState, action: ActionTypes): IStateData => {
                 data: searchData,
                 items: getItems(searchData, 1, state.countItem),
                 currentPage: 1,
-                countPages: getCountPages(searchData, state.countItem)
+                countPages: getCountPages(searchData, state.countItem),
+                countAllItems: searchData.length
 
             }
         default:

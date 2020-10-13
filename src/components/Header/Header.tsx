@@ -1,10 +1,13 @@
 import React, {useState} from 'react'
 import {NavLink} from 'react-router-dom'
 
+interface HeaderProps {
+    pathname: string | null
+}
 
 
-export const Header: React.FC = () => {
-    const [activeLink, setActiveLink] = useState('/')
+export const Header: React.FC<HeaderProps> = ({pathname}) => {
+    const [activeLink, setActiveLink] = useState(pathname)
 
     const HandlerLink = (str: string): void => {
         setActiveLink(str)

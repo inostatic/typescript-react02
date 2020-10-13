@@ -20,8 +20,9 @@ export const Search: React.FC<SearchProps> = ({searchByString}) => {
             <input type="text"
                    placeholder="Введите строку для поиска"
                    onChange={(e) => setSearchString(e.target.value)}
+                   value={searchString}
             />
-            <Button text={'Найти'} onSubmit={sendSearchString()} style={{'br5px': true}} />
+            <Button text={'Найти'} onSubmit={sendSearchString()} style={{'br-search': true}} />
         </div>
     )
 }
