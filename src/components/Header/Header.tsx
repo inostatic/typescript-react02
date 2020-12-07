@@ -16,6 +16,7 @@ export const Header: React.FC = () => {
       <NavLink
         to="/about"
         className={`header__item ${pathname === '/about' ? 'active' : ''}`}
+        exact
       >
         About
       </NavLink>
