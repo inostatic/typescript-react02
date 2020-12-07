@@ -1,5 +1,5 @@
 @import '../../scss/mixins';
-@import "../../scss/variables";
+@import '../../scss/variables';
 
 .form-add {
   .form-add__container {
@@ -29,7 +29,8 @@
         padding: 0.5rem 1rem;
         background: #000000;
         color: white;
-        font-size: 16px;
+        font-size: 14px;
+        font-weight: 500;
       }
 
       input {
@@ -44,5 +45,7 @@
     display: flex;
     justify-content: flex-end;
   }
-
+  button {
+    margin: 1rem 0;
+  }
 }

@@ -1,17 +1,22 @@
 @import '../../scss/mixins';
-@import "../../scss/variables";
+@import '../../scss/variables';
 
 .navbar {
   display: flex;
-  justify-content: center;
+  margin: 1rem 0;
+  justify-content: space-between;
+  align-items: center;
   .navbar__title {
     @include none-target;
-    padding: 1rem 0 1rem 1rem;
     font-size: 18px;
     line-height: 35px;
     color: #ffffff;
   }
   .navbar__container {
+    margin-left: 270px;
     display: flex;
+    button {
+      margin-left: 1rem;
+    }
   }
 }

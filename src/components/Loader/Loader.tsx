@@ -1,10 +1,14 @@
-import React from "react"
-import loader from '../../assets/loader.svg'
+import React from 'react'
+import loader from '../../assets/reload.svg'
 
-export const Loader: React.FC = () => {
-    return (
-        <div className='loader'>
-            <img src={loader} alt="#"/>
-        </div>
-    )
+interface propsType {
+  isDisabled: boolean
 }
+
+export const Loader: React.FC<propsType> = React.memo(({ isDisabled }) => {
+  return (
+    <div className={`loader ${!isDisabled ? 'loader_none' : ''}`}>
+      <img src={loader} alt="#" />
+    </div>
+  )
+})

@@ -1,5 +1,5 @@
 @import '../../scss/mixins';
-@import "../../scss/variables";
+@import '../../scss/variables';
 
 .search-form {
   display: flex;
@@ -10,5 +10,8 @@
     border-right: none;
     padding: 0 1rem;
     width: 84%;
+  }
+  .br-search {
+    border-radius: 0 0 5px 0;
   }
 }

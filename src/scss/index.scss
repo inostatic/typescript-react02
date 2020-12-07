@@ -10,11 +10,13 @@
 @import "../components/Form/Form";
 
 @import "variables";
+@import "fonts";
+@import "null";
 
 
 
 body {
-  font-family: Arial;
+  font-family: 'GothamPro';
   background: $color1;
 }
 
@@ -27,6 +29,12 @@ body {
   width: 1200px;
 }
 
+.error {
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+}
+
 //***Modification
 .m1rem {
   margin: 1rem;
@@ -36,30 +44,26 @@ body {
   margin-right: 0rem;
 }
 
-.mtb1rem {
-  margin: 1rem 0;
-}
 
-.br-search {
-  border-radius: 0 0 5px 0;
-}
 
 //**about page
 
 .about {
+  font-family: Arial;
   margin: 1rem auto;
-  width: 1000px;
+  width: 900px;
   background: #ffffff;
   border-radius: 3px;
 
   h1 {
-    padding: 2rem 1rem 2rem 5rem;
+    padding: 2rem 0rem;
     font-size: 26px;
     font-weight: bold;
+    text-align: center;
   }
 
   p {
-    padding: 0.5rem 1rem 0.5rem 2rem;
+    padding: 0.5rem 1rem 0.5rem 3rem;
     font-size: 16px;
     line-height: 25px;
   }
@@ -87,7 +91,7 @@ body {
     margin: 2rem 7rem;
     padding: 2rem;
     background: #d9dce2;
-    border: 1px solid #595f67;
+    border: 1px solid #adbbcb;
     border-radius: 5px;
   }
 }

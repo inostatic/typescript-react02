@@ -1,30 +1,34 @@
-import React, {useState} from "react"
-import {Button} from "../Button/Button"
-import {useDispatch} from "react-redux"
-import {selectDataAC} from "../../redux/reducers/select/action"
+import React from 'react'
+import { Button } from '../Button/Button'
+import { Loader } from '../Loader/Loader'
 
-export const Navbar: React.FC = () => {
-    const dispatch = useDispatch()
-    const [btnActive, setBtnActive] = useState('')
-
-    const style = {
-        'm1rem': true,
-        'mr0rem': true
-    }
-
-    const submitHandler = (text: string): void => {
-        dispatch(selectDataAC(text))
-        setBtnActive(text)
-    }
-
-
-    return (
-        <nav className="navbar">
-            <div className="navbar__title">Выберите набор данных:</div>
-            <div className="navbar__container">
-                <Button text={'Большой'} isActive={btnActive} onSubmit={submitHandler} style={style}/>
-                <Button text={'Маленький'} isActive={btnActive} onSubmit={submitHandler} style={style}/>
-            </div>
-        </nav>
-    )
+interface propsType {
+  isLoaded: boolean
+  select: string | null
+  HandlerDataSize: (text: string) => void
 }
+
+export const Navbar: React.FC<propsType> = React.memo(
+  ({ select, HandlerDataSize, isLoaded }) => {
+    return (
+      <nav className="navbar">
+        <div className="navbar__container">
+          <div className="navbar__title">Выберите набор данных:</div>
+          <Button
+            text={'Большой'}
+            isActive={select}
+            isDisabled={isLoaded}
+            onSubmit={HandlerDataSize}
+          />
+          <Button
+            text={'Маленький'}
+            isActive={select}
+            isDisabled={isLoaded}
+            onSubmit={HandlerDataSize}
+          />
+        </div>
+        <Loader isDisabled={isLoaded} />
+      </nav>
+    )
+  }
+)

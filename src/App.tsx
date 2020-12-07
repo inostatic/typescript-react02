@@ -1,25 +1,30 @@
 import React from 'react'
-import {Header} from './components/Header/Header'
-import {DataPage} from './pages/DataPage'
-import {AboutPage} from './pages/AboutPage'
-import {Switch, Route} from 'react-router-dom'
 import './scss/index.scss'
-import {useSelector} from "react-redux"
-import {AppState} from "./redux/createStore"
-
+import { Provider } from 'react-redux'
+import { store } from './redux/createStore'
+import {
+  Switch,
+  Route,
+  Redirect,
+  BrowserRouter as Router,
+} from 'react-router-dom'
+import { Header } from './components/Header/Header'
+import { DataPage } from './pages/DataPage'
+import { AboutPage } from './pages/AboutPage'
 
 export const App: React.FC = () => {
-    const pathname = useSelector((state: AppState) => state.select.path)
-    
-
-    return (
+  return (
+    <Provider store={store}>
+      <Router>
         <div className="app">
-            <Header pathname={pathname}/>
-            <Switch>
-                <Route component={DataPage} path="/" exact></Route>
-                <Route component={AboutPage} path="/about"></Route>
-            </Switch>
+          <Header />
+          <Switch>
+            <Route component={DataPage} path="/" exact></Route>
+            <Route component={AboutPage} path="/about" exact></Route>
+            <Redirect to={'/'} />
+          </Switch>
         </div>
-    )
-
+      </Router>
+    </Provider>
+  )
 }

@@ -1,16 +1,16 @@
 @import '../../scss/mixins';
-@import "../../scss/variables";
+@import '../../scss/variables';
 
 .button {
   @include none-target;
   width: 200px;
   height: 35px;
   background: yellow;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   font-size: 14px;
   color: #454957;
   border-radius: 3px;
-  font-weight: bold;
+  font-weight: 500;
 
   &:hover {
     cursor: pointer;

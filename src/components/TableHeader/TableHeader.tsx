@@ -1,46 +1,73 @@
-import React, {useState} from 'react'
-import {keyType, sortType} from "../../types"
+import React, { useEffect, useState} from 'react'
+import {keyType, sortType} from '../../types'
 
-
-type TableHeaderProps = {
-    sortByKey(key: sortType): void
+interface TableHeaderProps {
+  HandlerSort(key: sortType): void
+  dataSize: string | null
 }
 
-interface IStateArrow {
-    [index: string]: {
-        el: string,
-        flag: boolean
-    }
-}
 
-export const TableHeader: React.FC<TableHeaderProps> = ({sortByKey}) => {
-    const [before, after] = ['▼', '▲']
-    const stateArrow = ['id', 'firstName', 'lastName', 'email', 'phone']
-        .reduce((a, e) => ({...a, [e]: {el: before, flag: false}}), {})
-    const [sortItem, setSortItem] = useState<IStateArrow>(stateArrow)
-
-    const sortChangeArrow = (key: keyType): void => {
-        const el = after
-        const flag = !sortItem[key].flag
-        sortItem[key].el === before
-            ? setSortItem({...stateArrow, [key]: {el, flag}})
-            : setSortItem({...stateArrow})
-    }
-
-    function sortBy(key: keyType) {
-        return () => {
-            sortChangeArrow(key)
-            sortByKey({key, flag: sortItem[key].flag })
+export const TableHeader: React.FC<TableHeaderProps> = React.memo(({HandlerSort, dataSize}) => {
+  const [down, up] = ['arrow_drop_down', 'arrow_drop_up']
+  const [select, setSelect] = useState('')
+  const initialHeaders = ['id', 'firstName', 'lastName', 'email', 'phone']
+    .reduce((a, header) => (
+      {
+        ...a,
+        [header]: {
+          [up]: false,
+          [down]: false
         }
-    }
+      }), {})
+  const [headers, setHeaders] = useState<any>(initialHeaders)
 
-    return (
-        <div className="table-header">
-            <div onClick={sortBy('id')} className="table-header__item">id{sortItem.id.el}</div>
-            <div onClick={sortBy('firstName')} className="table-header__item">firstName{sortItem.firstName.el}</div>
-            <div onClick={sortBy('lastName')} className="table-header__item">lastName{sortItem.lastName.el}</div>
-            <div onClick={sortBy('email')} className="table-header__item">email{sortItem.email.el}</div>
-            <div onClick={sortBy('phone')} className="table-header__item">phone{sortItem.phone.el}</div>
-        </div>
-    )
-}
+  useEffect(() => {
+    if (dataSize) {
+      setSelect('')
+    }
+  }, [dataSize])
+
+  const HandlerArrows = (e: React.MouseEvent) => {
+    const name = (e.target as HTMLButtonElement)
+      .getAttribute('data-name') as keyType
+    if (name) {
+      const active = headers[name][up]
+        ? {[up]: false, [down]: true}
+        : {[up]: true, [down]: false}
+      setSelect(name)
+      setHeaders({
+        ...initialHeaders,
+        [name]: active
+      })
+      HandlerSort({key: name, flag: headers[name][up]})
+    }
+  }
+
+
+  return (
+    <div className="table-header" onClick={HandlerArrows}>
+      {
+        Object.keys(headers).map((name, i) =>
+          <div
+            key={i}
+            className='table-header__item'
+            data-name={name}>
+            <span data-name={name}>{name}</span>
+            <div
+              data-name={name}
+              className={`table-header__arrows ${name !== select ? 'opacity' : ''}`}>
+                <span
+                  data-name={name}
+                  className={`material-icons ${headers[name][up] ? 'active' : ''} `}
+                >{up}</span>
+              <span
+                data-name={name}
+                className={`material-icons arrow ${headers[name][down] ? 'active' : ''} `}
+              >{down}</span>
+            </div>
+          </div>
+        )
+      }
+    </div>
+  )
+})

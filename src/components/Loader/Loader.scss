@@ -1,5 +1,10 @@
 .loader {
-  display: flex;
-  justify-content: center;
-  margin-top: 25px;
+  margin-right: 1rem;
+  img {
+    width: 35px;
+  }
+}
+
+.loader_none {
+  display: none;
 }

@@ -1,5 +1,5 @@
 @import '../../scss/mixins';
-@import "../../scss/variables";
+@import '../../scss/variables';
 
 .pagination {
   @include none-target;
@@ -19,17 +19,16 @@
   .disabled a {
     color: #d1d1d2;
   }
- li {
-   background: white;
-   width: 30px;
-   height: 30px;
-   line-height: 30px;
-   text-align: center;
-   border: 1px solid #00000075;
-   border-right: none;
-   cursor: pointer;
-
- }
+  li {
+    background: white;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #00000075;
+    border-right: none;
+    cursor: pointer;
+  }
   li:first-child {
     border-radius: 4px 0 0 4px;
   }

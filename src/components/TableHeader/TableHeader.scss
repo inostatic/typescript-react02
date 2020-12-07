@@ -1,24 +1,45 @@
 @import '../../scss/mixins';
-@import "../../scss/variables";
+@import '../../scss/variables';
 
 .table-header {
   @include none-target;
-  display: flex;
   margin-top: 1rem;
   border-radius: 5px 5px 0 0;
+  background: black;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+
   .table-header__item {
-    cursor: pointer;
-    width: 20%;
-    line-height: 35px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
     padding-left: 1rem;
-    background: #000000;
-    color: white;
-    font-size: 16px;
-    &:first-child {
-      border-radius: 5px 0 0 0;
+    line-height: 35px;
+    width: 20%;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+
+    .table-header__arrows {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding-right: 1rem;
+      span {
+        font-size: 20px;
+        color: #666262;
+      }
+      .arrow {
+        position: absolute;
+        top: 8px;
+      }
+      .active {
+        color: #fff;
+      }
     }
-    &:last-child {
-      border-radius: 0 5px 0 0;
+    .opacity {
+      opacity: 0;
     }
   }
 }
